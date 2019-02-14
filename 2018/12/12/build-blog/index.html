@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Natt7">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Natt7博客建设 - Natt7
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Natt7 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>Natt</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> Natt7 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Natt7博客建设
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-12-12 17:20:38</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#aws" title="aws">aws</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#github" title="github">github</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#aliyun" title="aliyun">aliyun</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <p>使用github page + hexo + aws S3 + aliyun域名和dns 搭建个人博客，github page是一个纯静态的网站页面，所以编写博客实际上是在本地写好markdown文件之后打包成html上传到github里。这里因为没有图床所以拿aws的S3做图床（aws只能免费用一年，到时候要考虑迁移的事情，但最近在学aws还是放在上面了）。然后在阿里云上面买了个域名，解析到natt7.github.io上面，做了个CNAME解析（本来想用aws的route53，但竟然host zone要收费啥都不干一个月0.9刀，配置费用加标准请求费用，还是共产主义好）</p>
+<p>Github建一个以自己账号名称+github.io为名字的库，比如natt7.github.io<br>然后在repo的setting里选择一个github pages的主题，当然这里我是随便选的，好像github官方是用Jekyll做主题的，我后来选择用hexo。</p>
+<p>本地先安装hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>新建一个hexo站点，其实就是在本地找个地方创建一个目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>然后在hexo网站里找了一个theme，把下载的theme文件放在创建好的hexo站点的主题文件夹下面，运行一下看看。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>没什么问题就可以开始一些配置，这些配置可以参考主题的github一般会有介绍，或者查看hexo文档也可以。</p>
+<p>可以创建文章了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
+<p>编辑好文章和配置可以进行打包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p>
+<p>部署之前需要安装一个hexo和git部署的插件，在配置中把库的名称上面打上去。<br>npm install hexo-deployer-git –save</p>
+<p>然后就可以把打包好的文件部署上去了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>访问natt7.github.io就可以访问部署好的博客了。</p>
+<p>S3上创建一个桶，给了一些权限，但发现每次要进网页的console去传图片有点麻烦，所以折腾了一下aws的cli。<br>先安装一个aws的cli<br><a href="https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-install-macos.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-install-macos.html</a></p>
+<p>配置一个秘钥对<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ aws configure</span><br></pre></td></tr></table></figure></p>
+<p>S3上传图片，传了一个文件到制定桶里，权限设置是让所有人可读，制定aws标准id用户有所有权限。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ aws s3 cp &lt;file&gt; s3://yourbucket --grants <span class="built_in">read</span>=uri=http://acs.amazonaws.com/groups/global/AllUsers full=id=&lt;aws-standard-id&gt;</span><br></pre></td></tr></table></figure></p>
+<p>S3 cli命令参考<br><a href="https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/using-s3-commands.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/using-s3-commands.html</a></p>
+<p>删除S3文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws s3 rm s3://yourbucket/&lt;file&gt;</span><br></pre></td></tr></table></figure></p>
+<p>域名的CNAME不演示了 很简单，去阿里云配置一下就好了。</p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
